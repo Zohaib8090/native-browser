@@ -1,0 +1,87 @@
+# Native Browser
+
+A modern, privacy-focused, and highly performant web browser built for Windows using Electron. Designed for speed, aesthetics, and user control.
+
+![Native Browser Screenshot](https://via.placeholder.com/800x450.png?text=Native+Browser+Preview) *(Add a screenshot here)*
+
+## 🚀 Features
+
+### **Core Experience**
+*   **Native Look & Feel**: Frameless window design with custom title bar, glassmorphism effects, and smooth animations.
+*   **Dark Mode**: Sleek, eye-friendly dark theme optimized for long browsing sessions.
+*   **Performance First**: Built-in Memory Saver automatically suspends inactive tabs to free up RAM.
+*   **Focus Mode (`F11`)**: Distraction-free browsing that hides all UI elements.
+
+### **Privacy & Security**
+*   **Strict Incognito Mode**: 
+    *   **No History**: Browsing history is completely disabled.
+    *   **Isolated Sessions**: Each Incognito tab runs in a unique, ephemeral partition for maximum privacy (no shared cookies between tabs).
+    *   **Visual Indicators**: Clearly marked "InPrivate" badges and dark address bar.
+*   **Ad & Tracker Blocker**: Integrated blocking for ads and tracking scripts.
+*   **Smart Privacy**: Proxy support available in settings.
+
+### **Productivity Tools**
+*   **AI Sidebar**: Built-in AI assistant integration (WebLLM/Ollama) for page summarization and chat.
+*   **Download Manager**: Full control over downloads (Pause, Resume, Cancel, Open Folder).
+*   **Benchmarks**: Built-in "Smart Limit" to aggressively manage resources when RAM usage is high.
+*   **Customization**: Set custom search engines, homepage, and themes.
+
+## 🛠️ Installation
+
+### **Download for Windows**
+1.  Go to the [Releases](https://github.com/Zohaib8090/native-browser/releases) page.
+2.  Download the latest `.exe` installer (e.g., `Native Browser Setup 1.0.0.exe`).
+3.  Run the installer to set up the browser on your machine.
+
+### **Build from Source**
+
+If you prefer to build it yourself:
+
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/Zohaib8090/native-browser.git
+    cd native-browser
+    ```
+
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run in Development Mode**
+    ```bash
+    npm start
+    ```
+
+4.  **Build Executable**
+    ```bash
+    npm run dist
+    ```
+    The installer will be created in the `dist/` directory.
+
+## 🎮 Usage Shortcuts
+
+| Action | Shortcut |
+| :--- | :--- |
+| **New Tab** | `Ctrl + T` |
+| **New Incognito Tab** | `Ctrl + Shift + T` |
+| **New Window** | `Ctrl + N` |
+| **Close Tab** | `Ctrl + W` |
+| **Focus Mode** | `F11` (Exit with `Esc`) |
+| **History** | `Ctrl + H` |
+| **Bookmarks** | `Ctrl + B` |
+| **Address Bar** | `Ctrl + L` |
+| **Reload** | `Ctrl + R` |
+
+## 🤝 Contributing
+
+Contributions are welcome!
+1.  Fork the repository.
+2.  Create a feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
+## 📄 License
+
+This project is licensed under the ISC License.

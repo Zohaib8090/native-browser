@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Browser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Custom Title Bar -->
+    <div class="title-bar">
+        <div class="title-bar-left">
+            <img src="icon.png" alt="Browser Icon" class="app-icon">
+            <span class="app-title">Native Browser</span>
+        </div>
+        <div class="title-bar-right">
+            <button class="title-btn minimize-btn" id="minimizeBtn" title="Minimize">
+                <svg width="12" height="12" viewBox="0 0 12 12">
+                    <line x1="0" y1="6" x2="12" y2="6" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+            </button>
+            <button class="title-btn maximize-btn" id="maximizeBtn" title="Maximize">
+                <svg width="12" height="12" viewBox="0 0 12 12">
+                    <rect x="1" y="1" width="10" height="10" fill="none" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+            </button>
+            <button class="title-btn close-btn" id="closeBtn" title="Close">
+                <svg width="12" height="12" viewBox="0 0 12 12">
+                    <line x1="1" y1="1" x2="11" y2="11" stroke="currentColor" stroke-width="1.5" />
+                    <line x1="11" y1="1" x2="1" y2="11" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <div class="menu-item">
+            File
+            <div class="menu-dropdown">
+                <div class="menu-option" id="menuNewTab">New Tab <span style="float:right; opacity:0.5">Ctrl+T</span>
+                </div>
+                <div class="menu-option" id="menuNewIncognitoTab">New Incognito Tab <span
+                        style="float:right; opacity:0.5">Ctrl+Shift+T</span></div>
+                <div class="menu-option" id="menuNewWindow">New Window <span
+                        style="float:right; opacity:0.5">Ctrl+N</span></div>
+                <div class="menu-option" id="menuNewIncognito">New Incognito Window <span
+                        style="float:right; opacity:0.5">Ctrl+Shift+N</span></div>
+                <div class="menu-divider"></div>
+                <div class="menu-option" id="menuCloseWindow">Close Window <span
+                        style="float:right; opacity:0.5">Ctrl+W</span></div>
+            </div>
+        </div>
+        <div class="menu-item" id="menuView">
+            <span>View</span>
+            <div class="menu-dropdown">
+                <div class="menu-option" id="menuBookmarks">Bookmarks</div>
+                <div class="menu-option" id="menuHistory">History</div>
+                <div class="menu-option" id="menuDownloads">Downloads</div>
+            </div>
+        </div>
+        <div class="menu-item" id="menuTools">
+            <span>Tools</span>
+            <div class="menu-dropdown">
+                <div class="menu-option" id="menuClearData">Clear Browsing Data</div>
+                <div class="menu-option" id="menuDevTools">Developer Tools <span
+                        style="float:right; opacity:0.5">F12</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <div class="tabs-container" id="tabsContainer">
+            <!-- Tabs will be added dynamically -->
+        </div>
+        <button class="new-tab-btn" id="newTabBtn" title="New Tab (Ctrl+T)">
+            <svg width="16" height="16" viewBox="0 0 16 16">
+                <line x1="8" y1="3" x2="8" y2="13" stroke="currentColor" stroke-width="2" />
+                <line x1="3" y1="8" x2="13" y2="8" stroke="currentColor" stroke-width="2" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <div class="nav-controls">
+            <button class="nav-btn" id="backBtn" title="Back">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <path d="M12 4 L6 10 L12 16" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <button class="nav-btn" id="forwardBtn" title="Forward">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <path d="M8 4 L14 10 L8 16" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <button class="nav-btn" id="refreshBtn" title="Refresh">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <path d="M17 10 A7 7 0 1 1 10 3 L10 1 L14 4 L10 7 L10 5 A5 5 0 1 0 15 10" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+            <button class="nav-btn" id="homeBtn" title="Home">
+                <svg width="20" height="20" viewBox="0 0 20 20">
+                    <path d="M3 10 L10 3 L17 10 L17 17 L12 17 L12 12 L8 12 L8 17 L3 17 Z" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+        <div class="address-bar-container">
+            <div class="address-bar">
+                <svg class="lock-icon" width="16" height="16" viewBox="0 0 16 16">
+                    <rect x="4" y="7" width="8" height="6" rx="1" fill="none" stroke="currentColor"
+                        stroke-width="1.5" />
+                    <path d="M6 7 V5 A2 2 0 0 1 10 5 V7" fill="none" stroke="currentColor" stroke-width="1.5" />
+                </svg>
+                <input type="text" id="addressBar" placeholder="Search or enter website URL" autocomplete="off">
+            </div>
+        </div>
+        <button class="nav-btn bookmark-btn" id="bookmarkBtn" title="Bookmark">
+            <svg width="20" height="20" viewBox="0 0 20 20">
+                <path d="M5 3 L15 3 L15 17 L10 13 L5 17 Z" fill="none" stroke="currentColor" stroke-width="1.5"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <button class="nav-btn" id="settingsBtn" title="Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                </path>
+            </svg>
+        </button>
+        <button class="nav-btn focus-mode-btn" id="focusModeBtn" title="Focus Mode (F11)">
+            <svg width="20" height="20" viewBox="0 0 20 20">
+                <rect x="3" y="3" width="14" height="14" rx="1" fill="none" stroke="currentColor" stroke-width="1.5" />
+                <path d="M7 3v14M13 3v14M3 7h14M3 13h14" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+        </button>
+        <button class="nav-btn ai-toggle-btn" id="aiToggleBtn" title="AI Assistant" style="color: #8b5cf6;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" />
+                <path d="M12 8v8M8 12h8" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- AI Sidebar -->
+    <div class="ai-sidebar-container" id="aiSidebar">
+        <iframe src="ai-sidebar.html" class="ai-iframe" id="aiIframe"></iframe>
+    </div>
+
+    <!-- Bookmarks Sidebar -->
+    <div class="sidebar bookmarks-sidebar" id="bookmarksSidebar">
+        <div class="sidebar-header">
+            <h3>Bookmarks</h3>
+            <button class="sidebar-close" id="closeBookmarks">×</button>
+        </div>
+        <div class="sidebar-content" id="bookmarksList">
+            <!-- Bookmarks will be added dynamically -->
+        </div>
+    </div>
+
+    <!-- History Panel -->
+    <div class="sidebar history-sidebar" id="historySidebar">
+        <div class="sidebar-header">
+            <h3>History</h3>
+            <button class="sidebar-close" id="closeHistory">×</button>
+        </div>
+        <div class="sidebar-search">
+            <input type="text" id="historySearch" placeholder="Search history...">
+        </div>
+        <div class="sidebar-content" id="historyList">
+            <!-- History will be added dynamically -->
+        </div>
+        <button class="clear-history-btn" id="clearHistoryBtn">Clear All History</button>
+    </div>
+
+    <!-- Downloads Panel -->
+    <div class="downloads-panel" id="downloadsPanel">
+        <div class="downloads-header">
+            <h4>Downloads</h4>
+            <button class="downloads-close" id="closeDownloads">×</button>
+        </div>
+        <div class="downloads-list" id="downloadsList">
+            <!-- Downloads will be added dynamically -->
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal-content settings-modal">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <button class="modal-close" id="closeSettings">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h3>General</h3>
+                    <div class="setting-item">
+                        <label>Homepage</label>
+                        <input type="text" id="settingHomepage" placeholder="https://www.google.com">
+                    </div>
+                    <div class="setting-item">
+                        <label>Search Engine</label>
+                        <select id="settingSearchEngine">
+                            <option value="google">Google</option>
+                            <option value="bing">Bing</option>
+                            <option value="duckduckgo">DuckDuckGo</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+                    <div class="setting-item" id="customSearchEngineGroup" style="display: none;">
+                        <label>Custom Search URL (use %s for query)</label>
+                        <input type="text" id="settingCustomSearchUrl" placeholder="https://example.com/search?q=%s">
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Privacy & Security</h3>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="settingAdBlock">
+                            Enable Ad Blocker
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="settingPrivacyMode">
+                            Privacy Mode (Block Trackers)
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="settingProxyEnabled">
+                            Enable Proxy
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>Proxy URL</label>
+                        <input type="text" id="settingProxyUrl" placeholder="http://proxy.example.com:8080">
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Performance</h3>
+                    <div class="setting-item">
+                        <label>
+                            <input type="checkbox" id="settingMemorySaver">
+                            Enable Memory Saver (Suspend inactive tabs)
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>Suspend tabs after</label>
+                        <select id="settingSuspendTime">
+                            <option value="1">1 Minute</option>
+                            <option value="5">5 Minutes</option>
+                            <option value="15">15 Minutes</option>
+                            <option value="30">30 Minutes</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Max RAM Limit (MB)</label>
+                        <input type="number" id="settingMaxRam" placeholder="e.g. 2048 (0 for unlimited)">
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Data</h3>
+                    <div class="setting-item">
+                        <label>Cache & Cookies</label>
+                        <button class="btn-secondary" id="clearCacheBtn"
+                            style="padding: 4px 8px; font-size: 12px;">Clear Cache Now</button>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Appearance</h3>
+                    <div class="setting-item">
+                        <label>Theme</label>
+                        <select id="settingTheme">
+                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" id="saveSettings">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="context-menu" id="contextMenu">
+        <!-- Menu items will be added dynamically -->
+    </div>
+
+    <!-- AI Floating Button -->
+    <button class="ai-fab" id="aiFab" title="Ask AI">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
+    </button>
+
+    <!-- Content Area -->
+    <div class="content-area" id="contentArea">
+        <!-- Webviews will be added dynamically -->
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="renderer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <title>Tab Suspended</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #6366f1;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        p {
+            color: #a0a0a0;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 24px;
+            background: #6366f1;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #5558d6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="icon">💤</div>
+    <h1>Tab Sleeping</h1>
+    <p>This tab was suspended to save memory.</p>
+    <button onclick="location.reload()">Wake Up</button>
+</body>
+
+</html>
